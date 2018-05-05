@@ -28,18 +28,17 @@ public abstract class Room {
         this.guests = guests;
     }
 
-    public int currentRoomTotal(){
+    public int numberOfGuestsInRoom(){
         return this.guests.size();
     }
 
-    public int addGuestToRoom(Guest guest){
-        this.guests.add(guest);
-        return currentRoomTotal();
+    public void addGuestToRoom(Guest guest){
+         this.guests.add(guest);
     }
 
     public int checkOutGuest(Guest guest){
         this.guests.remove(guest);
-        return currentRoomTotal();
+        return numberOfGuestsInRoom();
     }
 
 
