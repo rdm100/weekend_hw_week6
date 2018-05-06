@@ -33,7 +33,11 @@ public abstract class Room {
     }
 
     public void addGuestToRoom(Guest guest){
-         this.guests.add(guest);
+//         int spacesLeftInRoom = getCapacity() - numberOfGuestsInRoom();
+        int spacesLeftInRoom = capacity - this.guests.size();
+         if(spacesLeftInRoom > 0) {
+             this.guests.add(guest);
+         }
     }
 
     public int checkOutGuest(Guest guest){

@@ -4,10 +4,10 @@ public class Bedroom extends Room{
     private RoomType type;
     private double roomRate;
 
-    public Bedroom(int roomNumber, RoomType roomtype, double roomRate){
-        super(roomtype.getCapacity());
+    public Bedroom(int capacity, int roomNumber, RoomType type, double roomRate){
+        super(type.getCapacity());
         this.roomNumber = roomNumber;
-        this.type = roomtype;
+        this.type = type;
         this.roomRate = roomRate;
     }
 
@@ -21,6 +21,10 @@ public class Bedroom extends Room{
 
     public void setRoomtype(RoomType roomtype) {
         this.type = roomtype;
+    }
+
+    public int getRoomCapacityStringFromEnum() {
+        return type.getCapacity();
     }
 
     public double getRoomRate() {
@@ -40,4 +44,5 @@ public class Bedroom extends Room{
     }
 
 
-}
+
+}//end of class
