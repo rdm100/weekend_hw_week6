@@ -72,5 +72,16 @@ public class Hotel extends Room{
         this.name = name;
     }
 
+    public void checkIn(Room room, Guest guest){
+        room.addGuestToRoom(guest);
+    }
+
+    public void checkOut(Room room, Guest guest){
+        room.checkOutGuest(guest);
+    }
+
+    public ArrayList listGuestsInRoom(Room room) {
+        return room.getGuests();
+    }
 
 }//end of class

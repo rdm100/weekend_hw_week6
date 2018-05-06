@@ -69,37 +69,61 @@ public class HotelTest {
         assertEquals(1, hotel1.numberOfConferenceRooms());
     }
 
+//    @Test
+//    public void hotel1CanCheckInGuestsToBedrooms(){
+//        hotel1.addBedroom(bedroom3);
+//        bedroom3.addGuestToRoom(guest1);
+//        bedroom3.addGuestToRoom(guest2);
+//        assertEquals(2, bedroom3.numberOfGuestsInRoom());
+//    }
+
     @Test
     public void hotel1CanCheckInGuestsToBedrooms(){
-        hotel1.addBedroom(bedroom3);
-        hotel1.addGuestToRoom(guest1);
-        hotel1.addGuestToRoom(guest2);
-        assertEquals(2, hotel1.numberOfGuestsInRoom());
+        hotel1.checkIn(bedroom3, guest1);
+        hotel1.checkIn(bedroom3, guest2);
+        assertEquals(2, bedroom3.numberOfGuestsInRoom());
+    }
+
+    @Test
+    public void hotel1CanCheckOutGuestsFromBedrooms3(){
+        hotel1.checkIn(bedroom3, guest1);
+        hotel1.checkIn(bedroom3, guest2);
+        hotel1.checkOut(bedroom3, guest2);
+        assertEquals(1, bedroom3.numberOfGuestsInRoom());
     }
 
     @Test
     public void hotel1CannotCheckInGuestsToBedroomsBecauseAtCapacity(){
         hotel1.addBedroom(bedroom3);
-        hotel1.addGuestToRoom(guest1);
-        hotel1.addGuestToRoom(guest2);
-        hotel1.addGuestToRoom(guest3);
-        assertEquals(2, hotel1.numberOfGuestsInRoom());
+        bedroom3.addGuestToRoom(guest1);
+        bedroom3.addGuestToRoom(guest2);
+        bedroom3.addGuestToRoom(guest3);
+        assertEquals(2, bedroom3.numberOfGuestsInRoom());
     }
 
     @Test
     public void hotel1CanCheckInGuestsToDiningRooms(){
         hotel1.addDiningRoom(diningRoom1);
-        hotel1.addGuestToRoom(guest1);
-        hotel1.addGuestToRoom(guest2);
-        assertEquals(2, hotel1.numberOfGuestsInRoom());
+        diningRoom1.addGuestToRoom(guest1);
+        diningRoom1.addGuestToRoom(guest2);
+        assertEquals(2, diningRoom1.numberOfGuestsInRoom());
     }
 
     @Test
     public void hotel1CanCheckInGuestsToConferenceRooms(){
         hotel1.addConferenceRoom(conferenceroom1);
-        hotel1.addGuestToRoom(guest1);
-        hotel1.addGuestToRoom(guest2);
-        assertEquals(2, hotel1.numberOfGuestsInRoom());
+        conferenceroom1.addGuestToRoom(guest1);
+        conferenceroom1.addGuestToRoom(guest2);
+        assertEquals(2, conferenceroom1.numberOfGuestsInRoom());
     }
+
+    @Test
+    public void listGuestsInRoom(){
+        hotel1.checkIn(bedroom3, guest1);
+        hotel1.checkIn(bedroom3, guest2);
+        assertEquals(2, hotel1.listGuestsInRoom(bedroom3).size());
+    }
+
+
 
 }
