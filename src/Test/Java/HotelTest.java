@@ -122,6 +122,7 @@ public class HotelTest {
         hotel1.checkIn(bedroom3, guest1);
         hotel1.checkIn(bedroom3, guest2);
         assertEquals(2, hotel1.listGuestsInRoom(bedroom3).size());
+
     }
 
 
